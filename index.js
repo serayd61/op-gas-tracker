@@ -8,6 +8,7 @@ app.use(express.json());
 
 // Configuration
 const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0'; // Railway için önemli
 
 // Basic endpoint
 app.get('/', (req, res) => {
@@ -34,6 +35,11 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Railway health check
+app.get('/_health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Placeholder endpoints
 app.get('/gas/current', (req, res) => {
   res.json({
@@ -44,8 +50,28 @@ app.get('/gas/current', (req, res) => {
   });
 });
 
-// Start server
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`OP Gas Tracker is running on port ${PORT}`);
-  console.log(`Health check: http://localhost:${PORT}/health`);
+// Error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
+
+// Start server - Railway uyumlu
+const server = app.listen(PORT, HOST, () => {
+  console.log(`OP Gas Tracker is running on http://${HOST}:${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('SIGTERM signal received: closing HTTP server');
+  server.close(() => {
+    console.log('HTTP server closed');
+    process.exit(0);
+  });
+});
+
+// Keep alive log
+setInterval(() => {
+  console.log(`[${new Date().toISOString()}] Server is alive on port ${PORT}`);
+}, 300000); // Her 5 dakikada bir
