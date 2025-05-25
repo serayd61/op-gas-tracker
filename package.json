@@ -4,8 +4,8 @@
   "description": "Real-time gas price tracker for Optimism L2",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc --skipLibCheck || echo 'Build completed with errors'",
-    "start": "node dist/index.js || node src/index.js",
+    "build": "echo 'No build needed for JS'",
+    "start": "node index.js",
     "dev": "ts-node-dev --respawn src/index.ts",
     "test": "jest",
     "lint": "eslint src/**/*.ts"
