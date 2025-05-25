@@ -1,5 +1,12 @@
 <<<<<<< HEAD
 # OP Gas Tracker 🚀
+# OP Gas Tracker 🚀
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Railway-7A5BE2)](https://op-gas-tracker-production.up.railway.app)
+[![GitHub](https://img.shields.io/github/stars/serayd61/op-gas-tracker?style=social)](https://github.com/serayd61/op-gas-tracker)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Real-time gas price tracker and fee estimator for Optimism L2 network.
 
 Real-time gas price tracker and fee estimator for Optimism L2 network. Monitor L1 data fees, L2 execution costs, and get accurate transaction cost predictions.
 
@@ -12,6 +19,130 @@ Real-time gas price tracker and fee estimator for Optimism L2 network. Monitor L
 - **Optimism-Specific**: Built specifically for OP Stack chains with proper L1 fee calculation
 
 ## 📊 Why OP Gas Tracker?
+# 🌐 Live Demo
+
+API is live at: https://op-gas-tracker-production.up.railway.app
+
+## 🔗 API Endpoints
+
+### Base URL
+```
+https://op-gas-tracker-production.up.railway.app
+```
+
+### Available Endpoints
+
+#### 1. API Status
+```http
+GET /
+```
+Returns API information and available endpoints.
+
+**Example Response:**
+```json
+{
+  "name": "OP Gas Tracker",
+  "version": "1.0.0",
+  "status": "running",
+  "message": "Gas tracker API is operational",
+  "endpoints": {
+    "health": "/health",
+    "current": "/gas/current (coming soon)",
+    "history": "/gas/history (coming soon)",
+    "stats": "/gas/stats (coming soon)"
+  }
+}
+```
+
+#### 2. Health Check
+```http
+GET /health
+```
+Returns service health status.
+
+**Example Response:**
+```json
+{
+  "status": "ok",
+  "uptime": 125.39,
+  "timestamp": "2025-05-25T15:30:00.000Z"
+}
+```
+
+#### 3. Current Gas Prices (Demo)
+```http
+GET /gas/current
+```
+Returns current gas price information (demo data for now).
+
+**Example Response:**
+```json
+{
+  "message": "This endpoint will return current gas prices",
+  "l1BaseFee": "30.5",
+  "l2GasPrice": "0.001",
+  "timestamp": 1716742200000
+}
+```
+
+## 💻 API Usage Examples
+
+### Using cURL
+```bash
+# Get API status
+curl https://op-gas-tracker-production.up.railway.app/
+
+# Check health
+curl https://op-gas-tracker-production.up.railway.app/health
+
+# Get current gas prices
+curl https://op-gas-tracker-production.up.railway.app/gas/current
+```
+
+### Using JavaScript (Fetch)
+```javascript
+// Get current gas prices
+fetch('https://op-gas-tracker-production.up.railway.app/gas/current')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+```
+
+### Using Python
+```python
+import requests
+
+# Get API status
+response = requests.get('https://op-gas-tracker-production.up.railway.app/')
+data = response.json()
+print(data)
+```
+
+### Using Node.js (Axios)
+```javascript
+const axios = require('axios');
+
+async function getGasPrice() {
+  try {
+    const response = await axios.get('https://op-gas-tracker-production.up.railway.app/gas/current');
+    console.log(response.data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+getGasPrice();
+```
+
+## 🚧 Development Status
+
+- ✅ Basic API structure
+- ✅ Health monitoring endpoints
+- ✅ Live deployment on Railway
+- 🔄 Real-time gas price tracking (in progress)
+- 📅 Historical data storage (planned)
+- 📅 WebSocket support (planned)
+- 📅 Multi-chain support (planned)
 
 Optimism uses a unique fee model where users pay both:
 1. **L2 execution fee**: For computation on L2
@@ -180,3 +311,16 @@ Built with ❤️ for the Optimism ecosystem
 # op-gas-tracker
 Real-time gas price tracker for Optimism L2
 >>>>>>> 4eae2e3d863c7d6d63d9572cbbbf231c4f0301ea
+>>>>>>> ## 🤝 Built for the Community
+
+This project was created to address a real need in the Optimism ecosystem - transparent and accessible gas price monitoring. As part of my commitment to the OP Stack community, I'm continuously working on improvements and new features.
+
+### Future Roadmap
+- Integration with multiple OP Stack chains (Base, Zora, Mode)
+- Advanced analytics and predictions
+- Developer SDK for easy integration
+- Mobile app companion
+
+---
+
+**Supporting the Optimism Collective** 🔴✨
