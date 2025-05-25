@@ -2,7 +2,7 @@
 nixPkgs = ["nodejs-18_x"]
 
 [phases.build]
-cmds = ["npm install", "npx tsc --skipLibCheck || true"]
+cmds = ["npm install"]
 
 [start]
-cmd = "node dist/index.js || npx ts-node src/index.ts"
+cmd = "node index.js"
