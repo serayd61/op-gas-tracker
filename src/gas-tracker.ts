@@ -10,7 +10,7 @@ const GAS_ORACLE_ABI = [
   'function overhead() view returns (uint256)',
   'function scalar() view returns (uint256)',
   'function decimals() view returns (uint256)',
-  'function getL1Fee(bytes _data) view returns (uint256)'
+  
 ];
 
 export class OptimismGasTracker {

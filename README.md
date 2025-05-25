@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OP Gas Tracker 🚀
 
 Real-time gas price tracker and fee estimator for Optimism L2 network. Monitor L1 data fees, L2 execution costs, and get accurate transaction cost predictions.
@@ -175,3 +176,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Built with ❤️ for the Optimism ecosystem
+=======
+# op-gas-tracker
+Real-time gas price tracker for Optimism L2
+>>>>>>> 4eae2e3d863c7d6d63d9572cbbbf231c4f0301ea
